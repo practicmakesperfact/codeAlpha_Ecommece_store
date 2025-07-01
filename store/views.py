@@ -13,6 +13,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     permission_classes = [AllowAny]
 
 class CartItemViewSet(viewsets.ModelViewSet):
+    queryset = CartItem.objects.all()
     serializer_class = CartItemSerializer
     permission_classes = [IsAuthenticated]
 
@@ -23,6 +24,7 @@ class CartItemViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 class OrderViewSet(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
     serializer_class = OrderSerializer
     permission_classes = [IsAuthenticated]
 

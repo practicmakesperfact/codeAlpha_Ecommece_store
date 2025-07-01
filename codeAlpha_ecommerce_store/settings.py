@@ -83,12 +83,9 @@ WSGI_APPLICATION = 'codeAlpha_ecommerce_store.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Ecommerce_store',
-        'USER': 'postgres',
-        'PASSWORD': 'YOUYR_PASSWORD',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        
         
     }
 }
