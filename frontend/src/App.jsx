@@ -7,8 +7,9 @@ import React, { useState, useEffect } from 'react';
     import { Register } from './components/Register';
     import { OrderConfirmation } from './components/OrderConfirmation';
     import axios from 'axios';
+    import { API_URL } from './components/config';
 
-    const API_URL = 'http://localhost:8000/api';
+    
 
     function App() {
       const [user, setUser] = useState(null);
