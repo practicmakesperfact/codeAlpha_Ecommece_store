@@ -1,6 +1,6 @@
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -14,8 +14,10 @@ SECRET_KEY = 'django-insecure-k)1h!0ub*1p_m47$^8r_%ngb()myh2v%i-&%wa(!f-opph$q*c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['expert-fortnight-wrgxxjvwwpw52gq75-8000.app.github.dev', 'localhost', '127.0.0.1']
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Application definition
 
@@ -35,7 +37,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -48,18 +50,21 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ],
     }
 
 CORS_ALLOWED_ORIGINS = [
-        "http://localhost:5174",
-        "http://127.0.0.1:5174",
-        "http://localhost:8000",
-        "http://127.0.0.1:8000",
-       'https://expert-fortnight-wrgxxjvwwpw52gq75-8000.app.github.dev',  
+        # "http://localhost:5174",
+        # "http://127.0.0.1:5174",
+        # "http://localhost:8000",
+        # "http://127.0.0.1:8000",
+        # 'https://expert-fortnight-wrgxxjvwwpw52gq75-5173.app.github.dev',  # Vite server origin
+        # 'https://expert-fortnight-wrgxxjvwwpw52gq75-8000.app.github.dev',  # Backend origin (if needed)  
+        "https://expert-fortnight-wrgxxjvwwpw52gq75-5173.app.github.dev",
 
     ]
+CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5174",
     "http://127.0.0.1:5174",

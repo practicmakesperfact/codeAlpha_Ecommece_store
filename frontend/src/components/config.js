@@ -1,1 +1,0 @@
-export const API_URL = 'https://expert-fortnight-wrgxxjvwwpw52gq75-8000.app.github.dev/api';

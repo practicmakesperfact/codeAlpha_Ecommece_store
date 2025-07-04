@@ -1,35 +1,23 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+import { ShoppingCartIcon, UserIcon } from '@heroicons/react/24/outline';
 
-   export function Navbar({ user, setUser, cartItems }) {
-     const handleLogout = () => {
-       localStorage.removeItem('token');
-       setUser(null);
-       window.location.href = '/';
-     };
-
-     return (
-       <nav className="bg-indigo-900 text-white p-4 shadow-md fixed w-full top-0 z-10">
-         <div className="container mx-auto flex justify-between items-center">
-           <h1 className="text-2xl font-bold">CodeAlpha Store</h1>
-           <div className="flex space-x-4 items-center">
-             <a href="/" className="hover:text-indigo-300">Home</a>
-             {user ? (
-               <>
-                 <a href="/cart" className="hover:text-indigo-300">
-                   Cart ({cartItems.length})
-                 </a>
-                 <button onClick={handleLogout} className="hover:text-indigo-300">
-                   Logout
-                 </button>
-               </>
-             ) : (
-               <>
-                 <a href="/login" className="hover:text-indigo-300">Login</a>
-                 <a href="/register" className="hover:text-indigo-300">Register</a>
-               </>
-             )}
-           </div>
-         </div>
-       </nav>
-     );
-   }
+export default function Navbar() {
+  return (
+    <nav className="bg-white shadow-lg">
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        <Link to="/" className="text-2xl font-bold text-indigo-600">E-Shop</Link>
+        <div className="flex items-center space-x-4">
+          <Link to="/products" className="text-gray-700 hover:text-indigo-600">Products</Link>
+          <Link to="/cart" className="text-gray-700 hover:text-indigo-600 flex items-center">
+            <ShoppingCartIcon className="h-5 w-5 mr-1" />
+            Cart
+          </Link>
+          <Link to="/login" className="text-gray-700 hover:text-indigo-600 flex items-center">
+            <UserIcon className="h-5 w-5 mr-1" />
+            Login
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
+}

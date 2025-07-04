@@ -1,15 +1,19 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from . import views
+# from rest_framework.routers import DefaultRouter
+# from .views import ProductViewSet, CartItemViewSet, OrderViewSet
+# from django.urls import path, include
 
-router = DefaultRouter()
-router.register(r'products', views.ProductViewSet)
-router.register(r'cart', views.CartItemViewSet)
-router.register(r'orders', views.OrderViewSet)
+
+# router = DefaultRouter()
+# router.register(r'products', ProductViewSet, basename='products')
+# router.register(r'cart', CartItemViewSet, basename='cart')
+# router.register(r'orders', OrderViewSet, basename='orders')
+
+# urlpatterns = [
+#     path('', include(router.urls)),
+# ]
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('register/', views.register, name='register'),
-    path('login/', views.login, name='login'),
-    path('user/', views.get_user, name='get_user'),
-]
+    # ... your other URLs ...
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)   
