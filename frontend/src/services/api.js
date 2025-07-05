@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "https://expert-fortnight-wrgxxjvwwpw52gq75-8000.app.github.dev/api",
-  withCredentials: true,  // If using cookies/session auth
+  baseURL: import.meta.env.VITE_API_BASE_URL || "/api",  // Use environment variable
+  withCredentials: true,
 });
 
 export const getProducts = () => api.get('/products');

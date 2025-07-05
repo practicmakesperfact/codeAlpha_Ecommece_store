@@ -29,10 +29,14 @@ export default function Products() {
           <div className="h-48 bg-gray-200 flex items-center justify-center">
             {product.image ? (
               <img 
-                src={`http://localhost:8000${product.image}`} 
-                alt={product.name}
-                className="h-full w-full object-cover"
-              />
+                  src={product.image_url || '/placeholder.jpg'} 
+                  alt={product.name}
+                  className="h-full w-full object-cover"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = '/placeholder.jpg';
+                  }}
+                />
             ) : (
               <span className="text-gray-500">No image</span>
             )}

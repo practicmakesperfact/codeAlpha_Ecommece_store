@@ -75,6 +75,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://localhost:8000",
     "https://127.0.0.1:8000",
 ]
+if 'GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN' in os.environ:
+    CSRF_TRUSTED_ORIGINS = [f'https://*.{os.environ["GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN"]}']
 
 ROOT_URLCONF = 'codeAlpha_ecommerce_store.urls'
 
