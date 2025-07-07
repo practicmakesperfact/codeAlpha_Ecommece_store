@@ -27,17 +27,17 @@ export default function Products() {
       {products.map((product) => (
         <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="h-48 bg-gray-200 flex items-center justify-center">
-            {product.image ? (
-             
-                <img 
-                  src={product.external_image_url} 
-                  onError={(e) => {
-                    e.target.onerror = null; 
-                    e.target.src = '/placeholder.jpg'
-                  }}
-                  alt={product.name}
-                />
-              ) : (
+            {product.external_image_url ? (
+              <img 
+                src={product.external_image_url} 
+                onError={(e) => {
+                  e.target.onerror = null; 
+                  e.target.src = '/placeholder.jpg';
+                }}
+                alt={product.name}
+                className="h-full w-full object-cover"
+              />
+            ) : (
               <span className="text-gray-500">No image</span>
             )}
           </div>
