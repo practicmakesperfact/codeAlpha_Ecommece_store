@@ -2,21 +2,15 @@ from rest_framework import serializers
 from .models import Product, Order, OrderItem
 
 class ProductSerializer(serializers.ModelSerializer):
-    image_url = serializers.SerializerMethodField()  # Changed from 'image' to 'image_url'
+    image_url = serializers.SerializerMethodField()
 
     def get_image_url(self, obj):
-        if obj.image:
-            request = self.context.get('request')
-            if request:
-                return request.build_absolute_uri(obj.image.url)
-            # Fallback for Codespaces
-            host = self.context.get('host', 'localhost:8000')
-            return f"http://{host}{obj.image.url}"
-        return None
+        return obj.image_url  # Uses the model property we defined
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'price', 'description', 'image', 'image_url']  # Include both
+        fields = ['id', 'name', 'price', 'description', 'image_url']
+        
 
 class OrderItemSerializer(serializers.ModelSerializer):
     product = ProductSerializer()

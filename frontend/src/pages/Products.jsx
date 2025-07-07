@@ -28,16 +28,16 @@ export default function Products() {
         <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="h-48 bg-gray-200 flex items-center justify-center">
             {product.image ? (
-              <img 
-                  src={product.image_url || '/placeholder.jpg'} 
-                  alt={product.name}
-                  className="h-full w-full object-cover"
+             
+                <img 
+                  src={product.external_image_url} 
                   onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = '/placeholder.jpg';
+                    e.target.onerror = null; 
+                    e.target.src = '/placeholder.jpg'
                   }}
+                  alt={product.name}
                 />
-            ) : (
+              ) : (
               <span className="text-gray-500">No image</span>
             )}
           </div>
