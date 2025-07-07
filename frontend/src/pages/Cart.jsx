@@ -47,7 +47,7 @@ export default function Cart() {
                 <div className="w-20 h-20 bg-gray-200 rounded flex items-center justify-center">
                   {item.product.image && (
                     <img 
-                      src={`http://localhost:8000${item.product.image}`} 
+                      src={`http://localhost:8000${item.product.image_url}`} 
                       alt={item.product.name}
                       className="h-full object-cover"
                     />

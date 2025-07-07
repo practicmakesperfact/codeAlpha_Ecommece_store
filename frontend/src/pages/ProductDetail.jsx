@@ -41,7 +41,7 @@ export default function ProductDetail() {
         <div className="md:w-1/2 bg-gray-100 rounded-lg flex items-center justify-center p-8">
           {product.image ? (
             <img 
-              src={`http://localhost:8000${product.image}`} 
+              src={`http://localhost:8000${product.image_url}`} 
               alt={product.name}
               className="max-h-96 object-contain"
             />
