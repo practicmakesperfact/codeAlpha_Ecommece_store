@@ -32,7 +32,7 @@ export default function Products() {
                   src={product.image_url} 
                   onError={(e) => {
                     e.target.onerror = null; 
-                    e.target.src = '/image6.png';
+                    e.target.src = '/placeholder.png';
                   }}
                   alt={product.name}
                   className="h-full w-full object-cover"

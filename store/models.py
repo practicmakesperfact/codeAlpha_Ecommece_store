@@ -10,7 +10,7 @@ class Product(models.Model):
     # For uploaded files
     image = models.ImageField(upload_to='products/', null=True, blank=True)  
     # For external URLs
-    external_image_url = models.URLField(blank=True, null=True)  
+    # external_image_url = models.URLField(blank=True, null=True)  
     
     def __str__(self):
         return self.name
